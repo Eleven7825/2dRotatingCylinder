@@ -1,0 +1,15 @@
+PROJECT(RotatingCylinder2D)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.15.0)
+
+SET(SOURCE_FILES
+    example.cpp
+    CartGridBodyForce.cpp
+    ForceProjector.cpp
+    OscillatingCylinderKinematics.cpp
+)
+
+ADD_EXECUTABLE(main2d ${SOURCE_FILES})
+
+FIND_PACKAGE(IBAMR 0.18.0 REQUIRED)
+TARGET_LINK_LIBRARIES(main2d IBAMR::IBAMR2d)
+SET(CMAKE_CXX_FLAGS ${IBAMR_CXX_FLAGS})
